@@ -114,6 +114,7 @@ def block_solve_agd(
                 break
             t *= ls_beta
 
+        b_j_norm = b_j.norm(p=2)
         # Make b_j non-zero if it is 0.
         if len((b_j.abs() < zero_thresh).nonzero()) == len(b_j):
             b_j.fill_(zero_fill)
