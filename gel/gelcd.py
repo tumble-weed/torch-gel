@@ -122,7 +122,7 @@ def block_solve_agd(
         b_diff_norm = (b_j - b_j_prev).norm(p=2)
 
         pbar_stats["t"] = "{:.2g}".format(t)
-        pbar_stats["rel change"] = "{:.2g}".format(b_diff_norm / b_j_norm)
+        pbar_stats["rel change"] = "{:.2g}".format(b_diff_norm / (b_j_norm + (b_j_norm==0).float() ))
         pbar.set_postfix(pbar_stats)
         pbar.update()
 
